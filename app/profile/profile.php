@@ -5,15 +5,15 @@ require_once "../process.php";
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
 $auth = $_SESSION['auth'] ?? null;
-$birthday = $_POST['birthday'] ?? null;
-$daysUntilBirthday = getDaysUntilNextBirthday();
-$expiryTime = $_COOKIE['expiryTime'];
 
 if (!$auth) {
     header('Location: /index.php');
 }
+
+$birthday = $_POST['birthday'] ?? null;
+$daysUntilBirthday = getDaysUntilNextBirthday();
+$expiryTime = $_COOKIE['expiryTime'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['submit'] === 'Добавить') {
     addBirthday($birthday);
@@ -58,12 +58,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['submit'] === 'Добави�
                 <?php
                 endif; ?>
 
-                <?php if ($daysUntilBirthday >= 1 ) : ?>
+                <?php
+                if ($daysUntilBirthday >= 1) : ?>
                     <p class="birthday-promo">До акции в честь дня рождения:
-                        <?php echo "$daysUntilBirthday " . getDayString($daysUntilBirthday); ?></p>
-                <?php elseif ($daysUntilBirthday === 0 ) : ?>
+                        <?php
+                        echo "$daysUntilBirthday " . getDayString($daysUntilBirthday); ?></p>
+                <?php
+                elseif ($daysUntilBirthday === 0) : ?>
                     <p class="birthday-promo">С днём рождения! Запишитесь сегодня для скидки 35%!</p>
-                <?php endif; ?>
+                <?php
+                endif; ?>
             </div>
             <div class="promo-highlight">
                 <p>Персональная акция! Скидка 20%,позвони для записи</p>

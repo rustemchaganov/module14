@@ -80,9 +80,9 @@ function getUser(): array
     return $userData;
 }
 
-function existBirthday(): ?bool
+function existBirthday(): bool
 {
-    return isset(getUser()['birthday']) ? true : null;
+    return isset(getUser()['birthday']);
 }
 
 function addBirthday(string $birthday): void
@@ -107,9 +107,9 @@ function getBirthdayDate(): ?string
 {
     if (existBirthday()) {
         return getUser()['birthday'];
-    } else {
-        return null;
     }
+
+    return null;
 }
 
 function getDayString(string $date): string
@@ -122,9 +122,9 @@ function getDayString(string $date): string
 
     if ($mod100 > 10 && $mod100 < 20) {
         return $titles[2];
-    } else {
-        return $titles[($mod10 < 5) ? $cases[$mod10] : $cases[5]];
     }
+
+    return $titles[($mod10 < 5) ? $cases[$mod10] : $cases[5]];
 }
 
 function getDaysUntilNextBirthday(): ?int
