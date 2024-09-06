@@ -1,0 +1,72 @@
+:root {
+    --primary-color: #565660;
+    --primary-dark: #6da7b6;
+    --secondary-color: #ffffff;
+    --background-color: #e0f7fa;
+    --text-dark: #333;
+    --text-medium: #555;
+    --text-light: #666;
+    --border-color: #e1e1e1;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.2);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.registration {
+    background-color: var(--secondary-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px var(--shadow-medium);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.error {
+    background-color: #ffdddd;
+    color: #d8000c;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px var(--shadow-light);
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px var(--shadow-light);
+    transition: box-shadow 0.3s ease;
+}
+
+form input[type="submit"] {
+    width: calc(50% - 10px);
+    padding: 8px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-dark);
+    color: var(--secondary-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 8px var(--shadow-medium);
+}
